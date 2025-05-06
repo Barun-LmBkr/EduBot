@@ -1,8 +1,15 @@
 from youtube_fetcher import fetch_youtube_videos
 from content_ranker import rank_videos
 from learning_path_builder import add_learning_levels
+from dotenv import load_dotenv
+import os
 
-api_key = "AIzaSyAkR6RY1e7xWFCteNyTPqIOxfGRCZZ95Fo"
+# Load environment variables from .env file
+load_dotenv()
+
+# Get API key from environment variable
+api_key = os.getenv("YOUTUBE_API_KEY")
+
 videos_df = fetch_youtube_videos("deep learning", 15, api_key)
 
 user_input = "I want to learn deep learning from scratch"
